@@ -1,4 +1,6 @@
 <script>
+import axios from 'axios';
+
 export default {
     data() {
 		return {
@@ -44,14 +46,13 @@ export default {
 <template>
   <h2>Questa è la lista dei Progetti.</h2>
 
-  <div class="container ">
-    <div class="card" style="width: 18rem">
-      <img src="..." class="card-img-top" alt="..." />
+  <div class="container d-flex gap-5 flex-wrap justify-content-center">
+    <div class="card" style="width: 18rem" v-for="portfolio in arrPortfolios" :key="portfolio.id">
+      <img :src="portfolio.url_image" class="card-img-top" :alt="portfolio.name" />
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">{{portfolio.name}}</h5>
         <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          
         </p>
       </div>
       <ul class="list-group list-group-flush">
