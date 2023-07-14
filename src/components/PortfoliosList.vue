@@ -25,6 +25,19 @@ export default {
 				});
 		},
 	},
+    created() {
+		// richiesta dati al server
+		axios
+			.get('http://127.0.0.1:8000/api/portfolios', {
+				params: {
+					page: this.currentPage,
+				},
+			})
+			.then(response => {
+				this.arrPortfolios = response.data.data;
+				this.nPages = response.data.last_page;
+			});
+	},
 };
 </script>
 
