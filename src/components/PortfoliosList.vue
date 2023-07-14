@@ -10,7 +10,7 @@ export default {
     methods: {
 		changePage(page) {
 			this.currentPage = page;
-			this.getPosts();
+			this.getPortfolios();
 		},
 		getPortfolios() {
 			axios
@@ -20,7 +20,7 @@ export default {
 					},
 				})
 				.then(response => {
-					this.arrPosts = response.data.data;
+					this.arrPortfolios = response.data.data;
 					this.nPages = response.data.last_page;
 				});
 		},
