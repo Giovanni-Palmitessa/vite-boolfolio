@@ -12,7 +12,7 @@ export default {
 			this.currentPage = page;
 			this.getPosts();
 		},
-		getPosts() {
+		getPortfolios() {
 			axios
 				.get('http://127.0.0.1:8000/api/portfolios', {
 					params: {
