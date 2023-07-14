@@ -47,18 +47,15 @@ export default {
   <h2>Questa è la lista dei Progetti.</h2>
 
   <div class="container d-flex gap-5 flex-wrap justify-content-center">
-    <div class="card" style="width: 18rem" v-for="portfolio in arrPortfolios" :key="portfolio.id">
+    <div class="card p-3" style="width: 18rem" v-for="portfolio in arrPortfolios" :key="portfolio.id">
       <img :src="portfolio.url_image" class="card-img-top" :alt="portfolio.name" />
       <div class="card-body">
         <h5 class="card-title">{{portfolio.name}}</h5>
-        <p class="card-text">
-          
-        </p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">{{portfolio.client_name}}</li>
+        <li class="list-group-item">{{portfolio.pickup_date}}</li>
+        <li class="list-group-item">{{portfolio.deploy_date}}</li>
       </ul>
       <div class="card-body">
         <a href="#" class="card-link">Card link</a>
