@@ -63,7 +63,7 @@ export default {
 
   <div class="container d-flex gap-5 flex-wrap justify-content-center">
     <div
-      class="card p-3"
+      class="card p-3 h-100"
       style="width: 18rem"
       v-for="portfolio in arrPortfolios"
       :key="portfolio.id"
