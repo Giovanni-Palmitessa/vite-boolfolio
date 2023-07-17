@@ -1,4 +1,6 @@
 <script>
+import { store } from "../store";
+
 export default {
   data() {
     return {
@@ -15,7 +17,7 @@ export default {
     getImageUrl(image) {
       return image
         ? this.store.baseUrl + "storage/" + image
-        : this.store.baseUrl + "storage/default.jpg";
+        : this.store.baseUrl + "storage/default.png";
     },
   },
 };
