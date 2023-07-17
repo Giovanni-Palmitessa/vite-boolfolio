@@ -88,8 +88,7 @@ export default {
         </li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <a href="#" class="card-link">View</a>
       </div>
     </div>
   </div>
