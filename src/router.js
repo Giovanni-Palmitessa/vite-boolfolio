@@ -14,12 +14,12 @@ const router = createRouter({
       component: AppHome,
     },
     {
-      path: "/posts",
+      path: "/portfolios",
       name: "portfolios.index",
       component: PortfoliosIndex,
     },
     {
-      path: "/posts/:id",
+      path: "/portfolios/:id",
       name: "portfolios.show",
       component: PortfoliosShow,
     },
