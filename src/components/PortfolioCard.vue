@@ -30,7 +30,7 @@ export default {
       :alt="objPortfolio.name"
     />
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">{{ objPortfolio.title }}</h5>
+      <h5 class="card-title">{{ objPortfolio.name }}</h5>
       <p class="card-text">text</p>
       <!-- <router-link
         :to="{ name: 'posts.show', params: { slug: objPost.slug } }"
