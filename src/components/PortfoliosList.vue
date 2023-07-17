@@ -1,7 +1,11 @@
 <script>
 import axios from "axios";
+import PortfolioCard from "./PortfolioCard.vue";
 
 export default {
+  components: {
+    PortfolioCard,
+  },
   data() {
     return {
       arrPortfolios: [],
@@ -26,7 +30,7 @@ export default {
     },
     getPortfolios() {
       axios
-        .get("http://127.0.0.1:8000/api/portfolios", {
+        .get("http://localhost:8000/api/portfolios", {
           params: {
             page: this.currentPage,
           },
@@ -45,7 +49,7 @@ export default {
   created() {
     // richiesta dati al server
     axios
-      .get("http://127.0.0.1:8000/api/portfolios", {
+      .get("http://localhost:8000/api/portfolios", {
         params: {
           page: this.currentPage,
         },
@@ -61,35 +65,9 @@ export default {
 <template>
   <h2>Questa è la lista dei Progetti.</h2>
 
-  <div class="container d-flex gap-5 flex-wrap justify-content-center">
-    <div
-      class="card p-3"
-      style="width: 18rem"
-      v-for="portfolio in arrPortfolios"
-      :key="portfolio.id"
-    >
-      <img
-        :src="getImageUrl(portfolio.image)"
-        class="card-img-top"
-        :alt="portfolio.name"
-      />
-      <div class="card-body">
-        <h5 class="card-title">Titolo: {{ portfolio.name }}</h5>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          Nome Cliente: {{ portfolio.client_name }}
-        </li>
-        <li class="list-group-item">
-          Data Inizio: {{ portfolio.pickup_date }}
-        </li>
-        <li class="list-group-item">
-          Data Consegna: {{ portfolio.deploy_date }}
-        </li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">View</a>
-      </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-5">
+    <div class="col" v-for="portfolio in arrPortfolios" :key="portfolio.id">
+      <PortfolioCard :objPortfolio="portfolio" />
     </div>
   </div>
 
