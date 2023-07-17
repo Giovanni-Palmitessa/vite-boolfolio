@@ -36,6 +36,11 @@ export default {
           this.nPages = response.data.last_page;
         });
     },
+    getImageUrl(image) {
+      return image
+        ? "http://localhost:8000/" + "storage" + image
+        : "http://localhost:8000/" + "storage/default.png";
+    },
   },
   created() {
     // richiesta dati al server
@@ -64,17 +69,23 @@ export default {
       :key="portfolio.id"
     >
       <img
-        :src="portfolio.url_image"
+        :src="getImageUrl(portfolio.image)"
         class="card-img-top"
         :alt="portfolio.name"
       />
       <div class="card-body">
-        <h5 class="card-title">{{ portfolio.name }}</h5>
+        <h5 class="card-title">Titolo: {{ portfolio.name }}</h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ portfolio.client_name }}</li>
-        <li class="list-group-item">{{ portfolio.pickup_date }}</li>
-        <li class="list-group-item">{{ portfolio.deploy_date }}</li>
+        <li class="list-group-item">
+          Nome Cliente: {{ portfolio.client_name }}
+        </li>
+        <li class="list-group-item">
+          Data Inizio: {{ portfolio.pickup_date }}
+        </li>
+        <li class="list-group-item">
+          Data Consegna: {{ portfolio.deploy_date }}
+        </li>
       </ul>
       <div class="card-body">
         <a href="#" class="card-link">Card link</a>
