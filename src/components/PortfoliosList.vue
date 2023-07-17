@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import PortfolioCard from "./PortfolioCard.vue";
+import { store } from "../store";
 
 export default {
   components: {
@@ -11,6 +12,7 @@ export default {
       arrPortfolios: [],
       currentPage: 1,
       nPages: 0,
+      store,
     };
   },
   methods: {
@@ -30,7 +32,7 @@ export default {
     },
     getPortfolios() {
       axios
-        .get("http://localhost:8000/api/portfolios", {
+        .get(this.store.baseUrl + "api/portfolios", {
           params: {
             page: this.currentPage,
           },
@@ -42,22 +44,13 @@ export default {
     },
     getImageUrl(image) {
       return image
-        ? "http://localhost:8000/" + "storage" + image
-        : "http://localhost:8000/" + "storage/default.png";
+        ? this.store.baseUrl + "storage" + image
+        : this.store.baseUrl + "storage/default.png";
     },
   },
   created() {
     // richiesta dati al server
-    axios
-      .get("http://localhost:8000/api/portfolios", {
-        params: {
-          page: this.currentPage,
-        },
-      })
-      .then((response) => {
-        this.arrPortfolios = response.data.data;
-        this.nPages = response.data.last_page;
-      });
+    this.getPortfolios();
   },
 };
 </script>
