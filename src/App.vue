@@ -1,15 +1,11 @@
-<script >
-import PortfoliosList from './components/PortfoliosList.vue';
-
+<script>
 export default {
-  components: {
-    PortfoliosList,
-  },
-}
+  components: {},
+};
 </script>
 
 <template>
-  <PortfoliosList />
+  <router-view></router-view>
 </template>
 
 <style lang="scss">
