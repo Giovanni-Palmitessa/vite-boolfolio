@@ -32,11 +32,11 @@ export default {
     <div class="card-body d-flex flex-column">
       <h5 class="card-title">Titolo: {{ objPortfolio.name }}</h5>
       <p class="card-text">text</p>
-      <!-- <router-link
-        :to="{ name: 'posts.show', params: { slug: objPost.slug } }"
+      <router-link
+        :to="{ name: 'portfolios.show', params: { id: objPortfolio.id } }"
         class="btn btn-primary mt-auto"
         >View</router-link
-      > -->
+      >
     </div>
   </div>
 </template>
