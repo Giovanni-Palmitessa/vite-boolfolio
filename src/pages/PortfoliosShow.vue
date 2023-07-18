@@ -6,6 +6,7 @@ export default {
   data() {
     return {
       store,
+      portfolio: null,
     };
   },
   created() {
@@ -13,13 +14,13 @@ export default {
     // esempio: http://localhost:8000/api/posts/iusto-hic-libero-culpa-sit-similique
     axios
       .get(this.store.baseUrl + "api/portfolios/" + this.$route.params.id)
-      .then((response) => console.log(response));
+      .then((response) => (this.portfolio = response.data.results));
   },
 };
 </script>
 
 <template>
-  <h2>Sono la show</h2>
+  <h1>{{ portfolio.name }}</h1>
 </template>
 
 <style></style>
