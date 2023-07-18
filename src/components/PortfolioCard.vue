@@ -31,7 +31,7 @@ export default {
     />
     <div class="card-body d-flex flex-column">
       <h5 class="card-title">Titolo: {{ objPortfolio.name }}</h5>
-      <p class="card-text">text</p>
+      <p class="card-text">Data di Consegna{{ objPortfolio.deploy_date }}</p>
       <router-link
         :to="{ name: 'portfolios.show', params: { id: objPortfolio.id } }"
         class="btn btn-primary mt-auto"
