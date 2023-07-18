@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import { store } from "../store";
+const { DateTime } = require("luxon");
 
 export default {
   data() {
@@ -21,6 +22,7 @@ export default {
 
 <template>
   <h1>{{ portfolio.name }}</h1>
+  <h2>Ultima modifica:</h2>
 </template>
 
 <style></style>
