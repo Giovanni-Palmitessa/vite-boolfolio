@@ -29,29 +29,33 @@ export default {
 
 <template>
   <template v-if="portfolio">
-    <h1></h1>
-    <h2>Ultima modifica: {{ this.DateTime.now().toFormat("dd/MM/yyyy") }}</h2>
-
-    <div class="card" style="width: 18rem">
-      <img
-        :src="this.store.getImageUrl(portfolio.image)"
-        :alt="portfolio.name"
-        class="card-img-top"
-      />
-      <div class="card-body">
-        <h5 class="card-title">Titolo: {{ portfolio.name }}</h5>
-        <p class="card-text">
-          {{ portfolio.description }}
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+    <div class="d-flex justify-content-center">
+      <div class="card m-3" style="width: 30rem">
+        <img
+          :src="this.store.getImageUrl(portfolio.image)"
+          :alt="portfolio.name"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Titolo: {{ portfolio.name }}</h5>
+          <p class="card-text">
+            {{ portfolio.description }}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Nome Cliente: {{ portfolio.client_name }}
+          </li>
+          <li class="list-group-item">
+            Data Inizio: {{ portfolio.pickup_date }}
+          </li>
+          <li class="list-group-item">
+            Data Consegna: {{ portfolio.deploy_date }}
+          </li>
+          <li class="list-group-item">
+            Ultima modifica: {{ this.DateTime.now().toFormat("dd/MM/yyyy") }}
+          </li>
+        </ul>
       </div>
     </div>
   </template>
