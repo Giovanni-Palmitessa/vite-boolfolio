@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppHome from "./pages/AppHome.vue";
 import PortfoliosIndex from "./pages/PortfoliosIndex.vue";
 import PortfoliosShow from "./pages/PortfoliosShow.vue";
+import AppAbout from "./pages/AppAbout.vue";
 
 const router = createRouter({
   history: createWebHistory(),
