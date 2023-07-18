@@ -1,13 +1,14 @@
 <script>
 import axios from "axios";
 import { store } from "../store";
-const { DateTime } = require("luxon");
+import { DateTime } from "luxon";
 
 export default {
   data() {
     return {
       store,
       portfolio: null,
+      DateTime,
     };
   },
   created() {
@@ -21,8 +22,10 @@ export default {
 </script>
 
 <template>
-  <h1>{{ portfolio.name }}</h1>
-  <h2>Ultima modifica:</h2>
+  <template v-if="portfolio">
+    <h1>{{ portfolio.name }}</h1>
+    <h2>Ultima modifica: {{ this.DateTime.now().toFormat("dd/MM/yyy") }}</h2>
+  </template>
 </template>
 
 <style></style>
