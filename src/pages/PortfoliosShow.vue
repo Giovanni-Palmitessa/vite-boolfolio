@@ -2,13 +2,18 @@
 import axios from "axios";
 import { store } from "../store";
 import { DateTime } from "luxon";
+import App404 from "./App404.vue";
 
 export default {
+  components: {
+    App404,
+  },
   data() {
     return {
       store,
       portfolio: null,
       DateTime,
+      is404: false,
     };
   },
   created() {
@@ -20,7 +25,8 @@ export default {
         if (response.data.success) {
           this.portfolio = response.data.results;
         } else {
-          this.$router.push({ name: "page404" });
+          // this.$router.push({ name: "page404" });
+          this.is404 = true;
         }
       });
   },
@@ -28,7 +34,8 @@ export default {
 </script>
 
 <template>
-  <template v-if="portfolio">
+  <App404 v-if="is404" />
+  <template v-else-if="portfolio">
     <div class="d-flex justify-content-center">
       <div class="card m-3" style="width: 30rem">
         <img
