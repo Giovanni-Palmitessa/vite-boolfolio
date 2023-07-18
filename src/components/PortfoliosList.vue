@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       arrPortfolios: [],
+      arrTypes: [],
       currentPage: 1,
       nPages: 0,
       store,
