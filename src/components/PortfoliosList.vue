@@ -35,6 +35,7 @@ export default {
         .get(this.store.baseUrl + "api/portfolios", {
           params: {
             page: this.currentPage,
+            q: new URLSearchParams(window.location.search).get("q"),
           },
         })
         .then((response) => {
@@ -47,15 +48,31 @@ export default {
         ? this.store.baseUrl + "storage" + image
         : this.store.baseUrl + "storage/default.png";
     },
+    getTypes() {
+      axios.get(this.store.baseUrl + "api/types").then((response) => {
+        this.arrTypes = response.data.results;
+      });
+    },
   },
   created() {
     // richiesta dati al server
     this.getPortfolios();
+    this.getTypes();
   },
 };
 </script>
 
 <template>
+  <form>
+    <h2>Filtra posts</h2>
+    <label for="type">Tipo</label>
+    <select class="form-select" id="type">
+      <option v-for="type in arrTypes" :key="type.id" :value="type.id">
+        {{ type.name }}
+      </option>
+    </select>
+  </form>
+
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-5">
     <div class="col" v-for="portfolio in arrPortfolios" :key="portfolio.id">
       <PortfolioCard :objPortfolio="portfolio" />
