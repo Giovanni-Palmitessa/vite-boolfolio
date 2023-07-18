@@ -16,7 +16,13 @@ export default {
     // esempio: http://localhost:8000/api/posts/iusto-hic-libero-culpa-sit-similique
     axios
       .get(this.store.baseUrl + "api/portfolios/" + this.$route.params.id)
-      .then((response) => (this.portfolio = response.data.results));
+      .then((response) => {
+        if (response.data.success) {
+          this.portfolio = response.data.results;
+        } else {
+          this.$router.push({ name: "page404" });
+        }
+      });
   },
 };
 </script>
@@ -24,7 +30,7 @@ export default {
 <template>
   <template v-if="portfolio">
     <h1>{{ portfolio.name }}</h1>
-    <h2>Ultima modifica: {{ this.DateTime.now().toFormat("dd/MM/yyy") }}</h2>
+    <h2>Ultima modifica: {{ this.DateTime.now().toFormat("dd/MM/yyyy") }}</h2>
   </template>
 </template>
 

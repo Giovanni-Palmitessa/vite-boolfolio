@@ -38,8 +38,8 @@ export default {
           },
         })
         .then((response) => {
-          this.arrPortfolios = response.data.data;
-          this.nPages = response.data.last_page;
+          this.arrPortfolios = response.data.results.data;
+          this.nPages = response.data.results.last_page;
         });
     },
     getImageUrl(image) {
