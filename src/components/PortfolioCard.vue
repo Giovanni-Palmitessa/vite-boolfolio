@@ -26,7 +26,7 @@ export default {
   <div class="card h-100">
     <img
       :src="getImageUrl(objPortfolio.image)"
-      class="card-img-top"
+      class="card-img-top h-100"
       :alt="objPortfolio.name"
     />
     <div class="card-body d-flex flex-column">
