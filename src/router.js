@@ -14,6 +14,11 @@ const router = createRouter({
       component: AppHome,
     },
     {
+      path: "/about",
+      name: "about",
+      component: AppAbout,
+    },
+    {
       path: "/portfolios",
       name: "portfolios.index",
       component: PortfoliosIndex,
