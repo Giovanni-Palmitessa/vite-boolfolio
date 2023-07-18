@@ -1,7 +1,20 @@
 <script>
 import axios from "axios";
 import { store } from "../store";
-export default {};
+
+export default {
+  data() {
+    return {
+      store,
+      arrPortfolios: [],
+    };
+  },
+  created() {
+    axios.get(this.store.baseUrl + "api/portfolios/random").then((response) => {
+      this.arrPortfolios = response.data.results;
+    });
+  },
+};
 </script>
 
 <template>
