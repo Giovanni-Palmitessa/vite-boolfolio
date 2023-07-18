@@ -64,7 +64,7 @@ export default {
 </script>
 
 <template>
-  <form>
+  <form class="my-5">
     <h2>Filtra posts</h2>
     <label for="type">Tipo</label>
     <select class="form-select" id="type">
