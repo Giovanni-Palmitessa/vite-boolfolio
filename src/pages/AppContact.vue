@@ -67,7 +67,7 @@ export default {
     class="alert alert-danger alert-dismissible fade show"
     role="alert"
   >
-    Errore
+    Errore nell'invio del messaggio!
     <button
       type="button"
       class="btn-close"
