@@ -10,10 +10,13 @@ export default {
       message: "",
       newsletter: true,
       showSucces: false,
+      isSending: false,
     };
   },
   methods: {
     sendLead() {
+      this.isSending = true;
+
       axios
         .post(this.store.baseUrl + "api/leads", {
           email: this.email,
@@ -22,12 +25,18 @@ export default {
           newsletter: this.newsletter,
         })
         .then((response) => {
-          console.log(response.data);
+          this.isSending = false;
 
           if (response.data.success) {
             this.showSucces = true;
           }
         });
+    },
+    resetForm() {
+      this.name = "";
+      this.email = "";
+      this.message = "";
+      this.newsletter = true;
     },
   },
 };
@@ -90,7 +99,9 @@ export default {
         >Iscriviti ala newsletter</label
       >
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" :disabled="isSending">
+      Submit
+    </button>
   </form>
 </template>
 
