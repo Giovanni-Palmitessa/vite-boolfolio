@@ -13,7 +13,12 @@ export default {
   },
   methods: {
     sendLead() {
-      axios.post(this.store.baseUrl + "api/leads");
+      axios.post(this.store.baseUrl + "api/leads", {
+        email: this.email,
+        name: this.name,
+        message: this.message,
+        newsletter: this.newsletter,
+      });
     },
   },
 };
