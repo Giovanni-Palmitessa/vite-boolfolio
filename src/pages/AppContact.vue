@@ -1,10 +1,23 @@
 <script>
-export default {};
+import { store } from "../store";
+import axios from "axios";
+export default {
+  data() {
+    return {
+      store,
+    };
+  },
+  methods: {
+    sendLead() {
+      axios.post(this.store.baseUrl + "api/leads");
+    },
+  },
+};
 </script>
 <template>
   <h1>Contact us</h1>
 
-  <form>
+  <form novalidate @submit.prevent="sendLead">
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
       <input
