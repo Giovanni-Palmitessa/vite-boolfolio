@@ -6,6 +6,7 @@ import PortfoliosIndex from "./pages/PortfoliosIndex.vue";
 import PortfoliosShow from "./pages/PortfoliosShow.vue";
 import AppAbout from "./pages/AppAbout.vue";
 import App404 from "./pages/App404.vue";
+import AppContact from "./pages/AppContact.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +20,11 @@ const router = createRouter({
       path: "/about",
       name: "about",
       component: AppAbout,
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: AppContact,
     },
     {
       path: "/portfolios",
