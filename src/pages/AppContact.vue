@@ -9,22 +9,45 @@ export default {
       email: "",
       message: "",
       newsletter: true,
+      showSucces: false,
     };
   },
   methods: {
     sendLead() {
-      axios.post(this.store.baseUrl + "api/leads", {
-        email: this.email,
-        name: this.name,
-        message: this.message,
-        newsletter: this.newsletter,
-      });
+      axios
+        .post(this.store.baseUrl + "api/leads", {
+          email: this.email,
+          name: this.name,
+          message: this.message,
+          newsletter: this.newsletter,
+        })
+        .then((response) => {
+          console.log(response.data);
+
+          if (response.data.success) {
+            this.showSucces = true;
+          }
+        });
     },
   },
 };
 </script>
 <template>
   <h1>Contact us</h1>
+
+  <div
+    v-if="showSucces"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    Messaggio inviato con successo!
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
 
   <form novalidate @submit.prevent="sendLead">
     <div class="mb-3">
