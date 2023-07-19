@@ -11,6 +11,7 @@ export default {
       newsletter: true,
       showSucces: false,
       isSending: false,
+      hasError: false,
     };
   },
   methods: {
@@ -30,6 +31,8 @@ export default {
           if (response.data.success) {
             this.showSucces = true;
             this.resetForm();
+          } else {
+            this.hasError = true;
           }
         });
     },
@@ -51,6 +54,20 @@ export default {
     role="alert"
   >
     Messaggio inviato con successo!
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div
+    v-if="hasError"
+    class="alert alert-danger alert-dismissible fade show"
+    role="alert"
+  >
+    Errore
     <button
       type="button"
       class="btn-close"
