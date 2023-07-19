@@ -29,6 +29,7 @@ export default {
 
           if (response.data.success) {
             this.showSucces = true;
+            this.resetForm();
           }
         });
     },
