@@ -66,7 +66,7 @@ export default {
 </script>
 
 <template>
-  <PortfolioFilter />
+  <PortfolioFilter :types="arrTypes" />
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-5">
     <div class="col" v-for="portfolio in arrPortfolios" :key="portfolio.id">
       <PortfolioCard :objPortfolio="portfolio" />
