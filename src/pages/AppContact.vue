@@ -12,6 +12,7 @@ export default {
       showSucces: false,
       isSending: false,
       hasError: false,
+      errors: {},
     };
   },
   methods: {
@@ -33,6 +34,7 @@ export default {
             this.resetForm();
           } else {
             this.hasError = true;
+            this.errors = response.data.errors;
           }
         });
     },
@@ -82,6 +84,7 @@ export default {
       <input
         type="email"
         class="form-control"
+        :class="{ 'is-invalid': errors.email }"
         id="email"
         aria-describedby="emailHelp"
         v-model="email"
@@ -93,7 +96,13 @@ export default {
 
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" v-model="name" />
+      <input
+        type="text"
+        class="form-control"
+        :class="{ 'is-invalid': errors.name }"
+        id="name"
+        v-model="name"
+      />
     </div>
 
     <div class="mb-3">
