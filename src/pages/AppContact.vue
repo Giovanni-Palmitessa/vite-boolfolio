@@ -54,7 +54,12 @@ export default {
     role="alert"
   >
     Messaggio inviato con successo!
-    <button type="button" class="btn-close" aria-label="Close"></button>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      @click="showSucces = false"
+    ></button>
   </div>
 
   <div
