@@ -89,6 +89,11 @@ export default {
         aria-describedby="emailHelp"
         v-model="email"
       />
+      <div class="invalid-feedback">
+        <p v-for="errorMessage in errors.email" :key="errorMessage">
+          {{ errorMessage }}
+        </p>
+      </div>
       <div id="emailHelp" class="form-text">
         We'll never share your email with anyone else.
       </div>
@@ -103,6 +108,11 @@ export default {
         id="name"
         v-model="name"
       />
+      <div class="invalid-feedback">
+        <p v-for="errorMessage in errors.name" :key="errorMessage">
+          {{ errorMessage }}
+        </p>
+      </div>
     </div>
 
     <div class="mb-3">
