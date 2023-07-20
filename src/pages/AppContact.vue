@@ -18,6 +18,9 @@ export default {
   methods: {
     sendLead() {
       this.isSending = true;
+      this.showSucces = false;
+      this.hasError = false;
+      this.errors = {};
 
       axios
         .post(this.store.baseUrl + "api/leads", {
