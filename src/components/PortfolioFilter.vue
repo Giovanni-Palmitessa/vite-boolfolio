@@ -26,7 +26,7 @@ export default {
     <select
       class="form-select"
       id="type"
-      @change="$emit('changeType')"
+      @change="$emit('changeType', typeId)"
       v-model="typeId"
     >
       <option v-for="type in types" :key="type.id" :value="type.id">

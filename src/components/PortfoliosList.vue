@@ -13,6 +13,7 @@ export default {
     return {
       arrPortfolios: [],
       arrTypes: [],
+      typeId: null,
       currentPage: 1,
       nPages: 0,
       store,
@@ -66,7 +67,7 @@ export default {
 </script>
 
 <template>
-  <PortfolioFilter :types="arrTypes" />
+  <PortfolioFilter :types="arrTypes" @changeType="typeId = $event" />
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-5">
     <div class="col" v-for="portfolio in arrPortfolios" :key="portfolio.id">
       <PortfolioCard :objPortfolio="portfolio" />
