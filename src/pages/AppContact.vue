@@ -109,6 +109,7 @@ export default {
       <label for="message" class="form-label">Messaggio</label>
       <textarea
         class="form-control"
+        :class="{ 'is-invalid': errors.message }"
         id="message"
         rows="3"
         v-model="message"
