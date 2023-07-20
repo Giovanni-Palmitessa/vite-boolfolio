@@ -109,6 +109,11 @@ export default {
         v-model="name"
       />
       <div class="invalid-feedback">
+        <p v-for="errorMessage in errors.message" :key="errorMessage">
+          {{ errorMessage }}
+        </p>
+      </div>
+      <div class="invalid-feedback">
         <p v-for="errorMessage in errors.name" :key="errorMessage">
           {{ errorMessage }}
         </p>
