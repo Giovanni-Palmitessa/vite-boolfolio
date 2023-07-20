@@ -54,12 +54,7 @@ export default {
     role="alert"
   >
     Messaggio inviato con successo!
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+    <button type="button" class="btn-close" aria-label="Close"></button>
   </div>
 
   <div
@@ -71,8 +66,8 @@ export default {
     <button
       type="button"
       class="btn-close"
-      data-bs-dismiss="alert"
       aria-label="Close"
+      @click="hasError = false"
     ></button>
   </div>
 
